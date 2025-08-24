@@ -1,5 +1,20 @@
+/**
+ * @file modbus_utils.c
+ * @brief Utility functions for Modbus protocol operations, including CRC16 calculation.
+ */
+
 #include "modbus_utils.h"
 
+/**
+ * @brief Compute the Modbus RTU CRC16 for a data buffer.
+ *
+ * @param buf Pointer to the data buffer
+ * @param len Length of the data buffer in bytes
+ * @return 16-bit CRC value
+ *
+ * This function implements the standard Modbus RTU CRC16 algorithm.
+ * It can be used for both requests and responses to ensure data integrity.
+ */
 uint16_t modbus_crc16(const uint8_t *buf, uint16_t len)
 {
     uint16_t crc = 0xFFFF;
