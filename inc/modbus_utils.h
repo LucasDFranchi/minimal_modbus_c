@@ -28,7 +28,7 @@ static inline bool is_valid_byte_count(uint16_t byte_count)
 
 static inline bool is_valid_slave_id(uint8_t slave)
 {
-    return (slave >= 0 && slave <= MODBUS_MAX_SLAVES);
+    return (slave <= MODBUS_MAX_SLAVES);
 }
 
 static inline bool is_valid_address_range(uint16_t addr, uint16_t qty)
