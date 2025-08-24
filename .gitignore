@@ -1,0 +1,48 @@
+# Compiled object files
+*.o
+*.obj
+
+# Compiled static and shared libraries
+*.a
+*.so
+*.dll
+*.dylib
+
+# Executables
+*.exe
+*.out
+*.elf
+
+# Build directories
+/build/
+/bin/
+/Debug/
+/Release/
+
+# VSCode settings
+.vscode/
+
+# CLion settings
+.idea/
+
+# CMake build files
+CMakeFiles/
+CMakeCache.txt
+cmake_install.cmake
+Makefile
+
+# Temporary files
+*.tmp
+*.log
+*.swp
+*.swo
+*.DS_Store
+
+# Coverage reports
+*.gcda
+*.gcno
+*.gcov
+coverage/
+
+# Shell scripts logs
+*.sh~
