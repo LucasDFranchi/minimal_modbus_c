@@ -14,6 +14,9 @@
 /** @brief Modbus function code for "Read Holding Registers" */
 #define MODBUS_READ_HOLDING_REG 0x03
 
+/** @brief Modbus broadcast slave ID (0) */
+#define BROADCAST_SLAVE_ID 0
+
 /**
  * @note Additional function codes can be added here as needed, for example:
  *       #define MODBUS_WRITE_SINGLE_REG 0x06

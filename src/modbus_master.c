@@ -12,27 +12,9 @@
 
 #include "modbus_slave.h"
 #include "modbus_utils.h"
+#include "modbus_types.h"
 
 static uint8_t last_request_slave_id = 0;
-
-#pragma pack(push, 1)
-typedef struct read_holding_registers_request_s
-{
-    uint8_t slave_id;               /**< Modbus slave ID */
-    uint8_t function_code;          /**< Function code (0x03 for read holding registers) */
-    uint16_t starting_address;      /**< Starting register address (big-endian) */
-    uint16_t quantity_of_registers; /**< Number of registers to read (big-endian) */
-} read_holding_registers_request_st;
-#pragma pack(pop)
-
-#pragma pack(push, 1)
-typedef struct read_holding_registers_header_response_s
-{
-    uint8_t slave_id;      /**< Modbus slave ID in response */
-    uint8_t function_code; /**< Function code in response */
-    uint8_t byte_count;    /**< Number of bytes in the payload */
-} read_holding_registers_header_response_st;
-#pragma pack(pop)
 
 /**
  * @brief Encode a Modbus Read Holding Registers request.
@@ -64,7 +46,7 @@ uint16_t encode_read_request(uint8_t slave_id, uint16_t addr, uint16_t qty, uint
     r.slave_id = slave_id;
     r.function_code = MODBUS_READ_HOLDING_REG;
     r.starting_address = MODBUS_HTONS(addr);
-    r.quantity_of_registers = MODBUS_HTONS(qty);
+    r.qty = MODBUS_HTONS(qty);
 
     uint16_t crc = modbus_crc16((uint8_t *)&r, sizeof(r));
 

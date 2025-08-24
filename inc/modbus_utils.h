@@ -81,20 +81,3 @@ static inline bool is_valid_address_range(uint16_t addr, uint16_t qty)
 {
     return ((addr + qty - 1) <= 0xFFFF);
 }
-
-/**
- * @brief Safe memcpy that returns false if destination size is smaller than source
- *
- * @param dst Destination buffer
- * @param dst_size Size of destination buffer
- * @param src Source buffer
- * @param n Number of bytes to copy
- * @return true if copy succeeded, false if dst_size < n
- */
-static inline bool safe_memcpy(void *dst, size_t dst_size, const void *src, size_t n)
-{
-    if (dst_size < n)
-        return false;
-    memcpy(dst, src, n);
-    return true;
-}
