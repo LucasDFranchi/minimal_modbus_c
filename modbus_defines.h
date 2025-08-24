@@ -1,0 +1,6 @@
+#pragma once
+
+#define MODBUS_MAX_REGS 125
+#define MODBUS_MAX_SLAVES 247
+
+#define MODBUS_READ_HOLDING_REG 0x03
